@@ -1,0 +1,67 @@
+import os
+
+# 경로 설정
+file_path = os.path.join('C:\project\yechan\Pandas\guardian_sim_cm3.hex')
+f = open(file_path)
+if not (os.path.isdir('C:\project\yechan\Pandas\hex')):
+    os.makedirs(os.path.join('C:\project\yechan\Pandas\hex'))
+if not (os.path.isdir('C:\project\yechan\Pandas\Bin')):
+    os.makedirs(os.path.join('C:\project\yechan\Pandas\Bin'))
+hexwritefile0 = open('C:\project\yechan\Pandas\hex/hex_0.txt', 'w')
+hexwritefile1 = open('C:\project\yechan\Pandas\hex/hex_1.txt', 'w')
+binwritefile0 = open('C:\project\yechan\Pandas\Bin/bin_0.txt', 'w')
+binwritefile1 = open('C:\project\yechan\Pandas\Bin/bin_1.txt', 'w')
+
+lines = f.readlines()
+
+# Upper 8bit
+for line in lines:
+    line = line.strip()
+    for i in range(2) :
+        hexwritefile0.write(line[i])
+        if line[i] == '0': binwritefile0.write('0000')
+        elif line[i] == '1': binwritefile0.write('0001')
+        elif line[i] == '2': binwritefile0.write('0010')
+        elif line[i] == '3': binwritefile0.write('0011')
+        elif line[i] == '4': binwritefile0.write('0100')
+        elif line[i] == '5': binwritefile0.write('0101')
+        elif line[i] == '6': binwritefile0.write('0110')
+        elif line[i] == '7': binwritefile0.write('0111')
+        elif line[i] == '8': binwritefile0.write('1000')
+        elif line[i] == '9': binwritefile0.write('1001')
+        elif line[i] == 'A': binwritefile0.write('1010')
+        elif line[i] == 'B': binwritefile0.write('1011')
+        elif line[i] == 'C': binwritefile0.write('1100')
+        elif line[i] == 'D': binwritefile0.write('1101')
+        elif line[i] == 'E': binwritefile0.write('1110')
+        elif line[i] == 'F': binwritefile0.write('1111')
+    hexwritefile0.write('\n')
+    binwritefile0.write('\n')
+
+# Lower 8bit
+    for i in range(2, 4):
+        hexwritefile1.write(line[i])
+        if line[i] == '0': binwritefile1.write('0000')
+        elif line[i] == '1': binwritefile1.write('0001')
+        elif line[i] == '2': binwritefile1.write('0010')
+        elif line[i] == '3': binwritefile1.write('0011')
+        elif line[i] == '4': binwritefile1.write('0100')
+        elif line[i] == '5': binwritefile1.write('0101')
+        elif line[i] == '6': binwritefile1.write('0110')
+        elif line[i] == '7': binwritefile1.write('0111')
+        elif line[i] == '8': binwritefile1.write('1000')
+        elif line[i] == '9': binwritefile1.write('1001')
+        elif line[i] == 'A': binwritefile1.write('1010')
+        elif line[i] == 'B': binwritefile1.write('1011')
+        elif line[i] == 'C': binwritefile1.write('1100')
+        elif line[i] == 'D': binwritefile1.write('1101')
+        elif line[i] == 'E': binwritefile1.write('1110')
+        elif line[i] == 'F': binwritefile1.write('1111')
+    hexwritefile1.write('\n')
+    binwritefile1.write('\n')
+
+f.close()
+hexwritefile0.close()
+hexwritefile1.close()
+binwritefile0.close()
+binwritefile1.close()
