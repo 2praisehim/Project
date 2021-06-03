@@ -1,7 +1,7 @@
 import os
 
 # 경로 설정
-file_path = os.path.join('C:\project\yechan\Pandas\guardian_sim_cm3.hex')
+file_path = os.path.join('C:\project\yechan\Pandas\hexfile.hex')
 f = open(file_path)
 if not (os.path.isdir('C:\project\yechan\Pandas\hex')):
     os.makedirs(os.path.join('C:\project\yechan\Pandas\hex'))
